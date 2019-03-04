@@ -9,65 +9,60 @@ public class Logger{
 	}
 }
 
+public class Student
+{
+    readonly int nr;
+    readonly string name;
+    readonly int group;
+    readonly string githubId;
+
+    public Student(int nr, string name, int group, string githubId)
+    {
+        this.nr = nr;
+        this.name = name;
+        this.group = group;
+        this.githubId = githubId;
+    }
+
+    public int Nr { get {return nr; } }
+    public string Name { get {return name; } }
+    public int Group { get {return group; } }
+    public string GithubId { get {return githubId; } }
+}
+
 class Point{
-	
-	int a;
-	int b;
-	
-	public Point(int x,int y){
-		a=x;
-		b=y;
-	}
-	
-	public int A{
-		get{return a;}
-		
-	}
-
-	public int B{
-		get{return b;}
-		
-	}
-	
+    int x, y;
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    public int X { get {return x;} set{ x = value;}}
+    public int Y { get {return y;} set{ y = value;}}
+    public double Module{
+        get{
+            return Math.Sqrt(x*x + y*y);
+        }
+    }
 }
 
-class Student{
-	int Nr;
-	String Name;
-	int Group;
-	String GithubId;
-	
-	public Student(int nr,String n,int g,String gId){
-		Nr=nr;
-		Name=n;
-		Group=g;
-		GithubId=gId;
+interface IAccount { long Balance{ get; set; }}
+
+class Account : IAccount {
+	public Account(long value){
+		Balance=value;
 	}
-	
-	public int NR{
-		get{return Nr;}
+	public long Balance{ get; set; }
 	}
-	
-	public String NAME{
-		get{return Name;}
-	}
-	
-	public int GROUP{
-		get{return Group;}
-	}
-	
-	public String GITHUBID{
-		get{return GithubId;}
-	}
-	
-}
+
 class Test{
 	
 	static void Main(){
 		Point p=new Point(7,9);
 		Student st=new Student(154134,"Ze Manel",5243,"ze");
+		Account ac=new Account(1024);
 		Logger.Log(p);
 		Logger.Log(st);
+		Logger.Log(ac);
 	}
 }
 
