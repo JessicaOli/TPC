@@ -126,7 +126,7 @@ class DistinctEnumerator<T> : IEnumerator<T>
     {
         while (srcIter.MoveNext())
         {
-            if (added.Add((T)srcIter.Current))
+            if (added.Add(srcIter.Current))
                 return true;
         }
         return false;
